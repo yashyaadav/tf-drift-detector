@@ -1,0 +1,6 @@
+# golangci-lint configuration (v1.x).
+# The default linter set (errcheck, govet, staticcheck, ineffassign, unused,
+# gosimple) is kept as-is. The only override is the timeout: the first cold run
+# type-checks the full aws-sdk-go-v2 dependency tree, which exceeds the stock 1m.
+run:
+  timeout: 5m
