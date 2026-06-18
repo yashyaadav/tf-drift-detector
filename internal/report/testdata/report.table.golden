@@ -1,0 +1,8 @@
+66.7% of live resources managed by Terraform  ·  2 managed  ·  1 unmanaged  ·  1 missing  (2 AWS-managed suppressed)
+
+CLASS      TYPE                ID      REGION
+unmanaged  aws_security_group  sg-999  us-east-1
+missing    aws_iam_role        role-B  global
+
+Scan warnings:
+  ! denied [us-west-2] aws_instance: AccessDenied

@@ -1,0 +1,120 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.0",
+  "serial": 3,
+  "lineage": "00000000-0000-0000-0000-000000000000",
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "data_lake",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "my-data-bucket",
+            "bucket": "my-data-bucket",
+            "arn": "arn:aws:s3:::my-data-bucket",
+            "tags": {"env": "prod"}
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "web",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "sg-abc123",
+            "name": "web",
+            "vpc_id": "vpc-1",
+            "tags": {"Name": "web"}
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "app",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "i-0abc",
+            "instance_type": "t3.micro",
+            "ami": "ami-1"
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "app_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "app-role",
+            "name": "app-role",
+            "arn": "arn:aws:iam::123456789012:role/app-role",
+            "path": "/"
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_db_instance",
+      "name": "db",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "db-1",
+            "username": "admin",
+            "password": "supersecret"
+          },
+          "sensitive_attributes": [
+            [{"type": "get_attr", "value": "password"}]
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.network",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "private",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "a",
+          "attributes": {"id": "subnet-a", "cidr_block": "10.0.1.0/24"}
+        },
+        {
+          "index_key": "b",
+          "attributes": {"id": "subnet-b", "cidr_block": "10.0.2.0/24"}
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_ami",
+      "name": "ubuntu",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {"attributes": {"id": "ami-data", "most_recent": true}}
+      ]
+    }
+  ]
+}

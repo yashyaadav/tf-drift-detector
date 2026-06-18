@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1",
+  "generatedAt": "2026-06-18T00:00:00Z",
+  "provider": "aws",
+  "scope": {
+    "partition": "aws",
+    "account": "123456789012",
+    "regions": [
+      "us-east-1"
+    ],
+    "types": [
+      "aws_iam_role",
+      "aws_security_group"
+    ]
+  },
+  "summary": {
+    "coveragePercent": 66.7,
+    "total": 4,
+    "managed": 2,
+    "unmanaged": 1,
+    "missing": 1,
+    "changed": 0,
+    "suppressed": 2
+  },
+  "findings": [
+    {
+      "class": "unmanaged",
+      "type": "aws_security_group",
+      "id": "sg-999",
+      "region": "us-east-1",
+      "account": "123456789012"
+    },
+    {
+      "class": "missing",
+      "type": "aws_iam_role",
+      "id": "role-B",
+      "region": "global",
+      "account": "123456789012"
+    }
+  ],
+  "scanStatuses": [
+    {
+      "type": "aws_iam_role",
+      "region": "global",
+      "state": "scanned"
+    },
+    {
+      "type": "aws_instance",
+      "region": "us-west-2",
+      "state": "denied",
+      "detail": "AccessDenied"
+    },
+    {
+      "type": "aws_security_group",
+      "region": "us-east-1",
+      "state": "scanned"
+    }
+  ]
+}
